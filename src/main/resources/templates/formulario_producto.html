@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Registrar Producto</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8d7f5; 
+            color: #333; 
+        }
+        .form-label {
+            color: #000; 
+        }
+        .btn-primary {
+            background-color: #ff69b4; 
+            border-color: #ff69b4;
+        }
+        .btn-primary:hover {
+            background-color: #ff1493; 
+            border-color: #ff1493;
+        }
+        .container {
+            background-color: #fff; 
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: #ff1493; 
+        }
+    </style>
+</head>
+<body>
+<div class="container-sm">
+    <h1 class="text-center">Registrar Producto</h1>
+    <form th:action="@{/resultado}" th:object="${producto}" method="post" class="mt-4">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de Producto</label>
+            <input type="text" id="nombre" th:field="*{nombre}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="fechaCaducidad" class="form-label">Fecha de Caducidad</label>
+            <input type="text" id="fechaCaducidad" th:field="*{fechaCaducidad}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="stockMinimo" class="form-label">Stock Mínimo</label>
+            <input type="number" id="stockMinimo" th:field="*{stockMinimo}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="stockMaximo" class="form-label">Stock Máximo</label>
+            <input type="number" id="stockMaximo" th:field="*{stockMaximo}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="precioUnitario" class="form-label">Precio Unitario</label>
+            <input type="number" step="0.01" id="precioUnitario" th:field="*{precioUnitario}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="categoria" class="form-label">Categoría</label>
+            <input type="text" id="categoria" th:field="*{categoria}" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="marca" class="form-label">Marca</label>
+            <input type="text" id="marca" th:field="*{marca}" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-danger">Registrar</button>
+    </form>
+</div>
+</body>
+</html>
